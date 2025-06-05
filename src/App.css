@@ -124,3 +124,14 @@ h1 {
     font-size: 0.8rem;
   }
 }
+
+.btn {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
