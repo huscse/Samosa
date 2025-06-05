@@ -1,0 +1,130 @@
+/* General layout */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #121212;
+  color: white;
+  font-family: 'Press Start 2P', cursive;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+.container {
+  text-align: center;
+  width: 100%;
+}
+
+/* Samosa image button */
+.samosa {
+  display: block;
+  max-width: 50vw;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .samosa {
+    max-width: 80vw;
+  }
+}
+
+/* Click button styles */
+.btn {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-top: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Animation */
+.pop {
+  animation: pop 0.15s ease;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Counter */
+.count {
+  display: block;
+  margin-top: 10px;
+  font-size: 10px;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .count {
+    font-size: 8px;
+  }
+}
+
+/* Upgrade section */
+.upgrades {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.upgrade {
+  font-family: 'Press Start 2P', cursive;
+  padding: 12px 20px;
+  background-color: #ffcc00;
+  border: none;
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.2s ease;
+  color: black;
+  border-radius: 8px;
+  flex: 1 1 250px;
+  max-width: 300px;
+}
+
+.upgrade:hover {
+  transform: scale(1.05);
+}
+
+.locked {
+  background-color: #555;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* Title */
+h1 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 0.8rem;
+  }
+}
