@@ -25,7 +25,6 @@ html {
   width: 100%;
 }
 
-/* Samosa image button */
 .samosa {
   display: block;
   max-width: 50vw;
@@ -38,7 +37,6 @@ html {
   }
 }
 
-/* Click button styles */
 .btn {
   background: none;
   border: none;
@@ -84,7 +82,6 @@ html {
   }
 }
 
-/* Upgrade section */
 .upgrades {
   margin-top: 40px;
   display: flex;
@@ -117,7 +114,6 @@ html {
   cursor: not-allowed;
 }
 
-/* Title */
 h1 {
   font-size: 1.25rem;
   margin-bottom: 1rem;

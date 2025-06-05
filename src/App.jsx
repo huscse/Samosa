@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Samosa from '/samosa.png';
 import './App.css';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [samosaCount, setSamosaCount] = useState(0);
@@ -90,6 +91,7 @@ function App() {
           🎉 Party Samosa (1000 clicks)
         </button>
       </div>
+      <Analytics/>
     </div>
   );
 }
