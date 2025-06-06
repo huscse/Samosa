@@ -259,15 +259,25 @@ h1 {
 }
 
 .chutney {
-  max-width: auto;
+  max-width: 85px;
   height: auto;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
 }
 
-@media (max-width: 600px) {
-  .chutney {
-    max-width: 85px;
+.party-mode {
+  animation: partyBG 0.3s infinite alternate;
+}
+
+@keyframes partyBG {
+  0% {
+    background-color: #13f550;
+  }
+  50% {
+    background-color: #ff0000;
+  }
+  100% {
+    background-color: #0352fc;
   }
 }

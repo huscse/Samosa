@@ -7,6 +7,8 @@ import { Analytics } from '@vercel/analytics/react';
 function App() {
   const [samosaCount, setSamosaCount] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
+  const [chutneyActive, setChutneyActive] = useState(false);
+
   const [unlocked, setUnlocked] = useState({
     double: false,
     extra: false,
@@ -61,6 +63,7 @@ function App() {
         <div className="click-area">
           <img src={Samosa} alt="Samosa" className="samosa" />
           <img src={Chutney} alt="Chutney" className="chutney" />
+          <div></div>
         </div>
         <span className="press-start-2p-regular">
           <span className="count">Count: {samosaCount}</span>
@@ -69,6 +72,22 @@ function App() {
 
       <div className="upgrades">
         <h2 className="press-start-2p-regular">Upgrades</h2>
+        <button
+          className={`upgrade ${samosaCount >= 200 ? '' : 'locked'}`}
+          onClick={() => {
+            if (!chutneyActive) {
+              setMultiplier((prev) => prev + 10);
+              setChutneyActive(true);
+              setTimeout(() => {
+                setMultiplier((prev) => prev - 10);
+                setChutneyActive(false);
+              }, 10000);
+            }
+          }}
+          disabled={chutneyActive || samosaCount < 200}
+        >
+          🟢 Green Chutney Boost (+10 for 10s)
+        </button>
 
         <button
           className={`upgrade ${unlocked.double ? '' : 'locked'}`}
@@ -88,7 +107,17 @@ function App() {
 
         <button
           className={`upgrade ${unlocked.party ? '' : 'locked'}`}
-          onClick={() => unlocked.party && setMultiplier(5)}
+          onClick={() => {
+            if (unlocked.party) {
+              setMultiplier(5);
+
+              // 🪩 Party background FX
+              document.body.classList.add('party-mode');
+              setTimeout(() => {
+                document.body.classList.remove('party-mode');
+              }, 5000);
+            }
+          }}
           disabled={!unlocked.party}
         >
           🎉 Party Samosa (1000 clicks)
