@@ -284,10 +284,10 @@ h1 {
 }
 
 .redpanda {
-  animation: pandaPop 0.4s ease-in-out;
   width: 200px;
   height: auto;
   max-width: 200px;
+  filter: drop-shadow(2px 2px 0px #00000055);
 }
 
 @keyframes pandaPop {

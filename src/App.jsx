@@ -67,7 +67,7 @@ function App() {
             <img
               src={samosaCount >= 100 ? ChutneyPan : Samosa}
               alt="Main Character"
-              className={`samosa ${samosaCount >= 100 ? 'redpanda' : ''}`}
+              className={`samosa ${samosaCount >= 100 ? 'redpanda' : ''} pop`}
             />
           </div>
         </div>
