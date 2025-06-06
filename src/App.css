@@ -259,11 +259,12 @@ h1 {
 }
 
 .chutney {
-  max-width: 85px;
+  max-width: 95px;
   height: auto;
   image-rendering: pixelated;
   image-rendering: -moz-crisp-edges;
   image-rendering: crisp-edges;
+  padding-right: 20px;
 }
 
 .party-mode {
@@ -280,4 +281,35 @@ h1 {
   100% {
     background-color: #0352fc;
   }
+}
+
+.redpanda {
+  animation: pandaPop 0.4s ease-in-out;
+  width: 200px;
+  height: auto;
+  max-width: 200px;
+}
+
+@keyframes pandaPop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.character-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.redpanda {
+  filter: drop-shadow(2px 2px 0px #00000055);
+}
+
+.chutney-foot {
+  filter: drop-shadow(1px 1px 0px #00000033);
 }

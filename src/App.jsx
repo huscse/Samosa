@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import Samosa from '/samosa.png';
 import Chutney from '/chutney.png';
+import ChutneyPan from '/chutneypan.png';
+
 import './App.css';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -61,10 +63,15 @@ function App() {
       <h1 className="press-start-2p-regular">Samosa Clicker</h1>
       <button className="btn" onClick={handleClick}>
         <div className="click-area">
-          <img src={Samosa} alt="Samosa" className="samosa" />
-          <img src={Chutney} alt="Chutney" className="chutney" />
-          <div></div>
+          <div className="character-wrapper">
+            <img
+              src={samosaCount >= 100 ? ChutneyPan : Samosa}
+              alt="Main Character"
+              className={`samosa ${samosaCount >= 100 ? 'redpanda' : ''}`}
+            />
+          </div>
         </div>
+
         <span className="press-start-2p-regular">
           <span className="count">Count: {samosaCount}</span>
         </span>
