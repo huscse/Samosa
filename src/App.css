@@ -284,10 +284,10 @@ h1 {
 }
 
 .redpanda {
-  animation: pandaPop 0.4s ease-in-out;
   width: 200px;
   height: auto;
   max-width: 200px;
+  filter: drop-shadow(2px 2px 0px #00000055);
 }
 
 @keyframes pandaPop {
@@ -313,4 +313,3 @@ h1 {
 .chutney-foot {
   filter: drop-shadow(1px 1px 0px #00000033);
 }
-s
