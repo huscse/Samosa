@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import Samosa from '/samosa.png';
+import Chutney from '/chutney.png';
 import './App.css';
 import { Analytics } from '@vercel/analytics/react';
 
@@ -29,7 +30,6 @@ function App() {
       });
   }, []);
 
-  // Unlock upgrades
   useEffect(() => {
     setUnlocked({
       double: samosaCount >= 150,
@@ -58,7 +58,10 @@ function App() {
     <div className="container">
       <h1 className="press-start-2p-regular">Samosa Clicker</h1>
       <button className="btn" onClick={handleClick}>
-        <img src={Samosa} alt="Samosa" className="samosa" />
+        <div className="click-area">
+          <img src={Samosa} alt="Samosa" className="samosa" />
+          <img src={Chutney} alt="Chutney" className="chutney" />
+        </div>
         <span className="press-start-2p-regular">
           <span className="count">Count: {samosaCount}</span>
         </span>
@@ -91,7 +94,7 @@ function App() {
           🎉 Party Samosa (1000 clicks)
         </button>
       </div>
-      <Analytics/>
+      <Analytics />
     </div>
   );
 }
