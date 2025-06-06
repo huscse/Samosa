@@ -6,29 +6,10 @@ import ChutneyPan from '/chutneypan.png';
 import './App.css';
 import { Analytics } from '@vercel/analytics/react';
 
-useEffect(() => {
-  setUnlocked({
-    double: samosaCount >= 150,
-    extra: samosaCount >= 500,
-    party: samosaCount >= 1000,
-  });
-
-  // Trigger panda switch at 100 clicks with fade
-  if (samosaCount === 100 && !isPanda) {
-    setFadeClass('fade-out');
-    setTimeout(() => {
-      setIsPanda(true); // switch image
-      setFadeClass('fade-in'); // fade in new one
-    }, 300); // delay for fade-out
-  }
-}, [samosaCount]);
-
 function App() {
   const [samosaCount, setSamosaCount] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
   const [chutneyActive, setChutneyActive] = useState(false);
-  const [isPanda, setIsPanda] = useState(false);
-  const [fadeClass, setFadeClass] = useState('');
 
   const [unlocked, setUnlocked] = useState({
     double: false,
@@ -84,9 +65,9 @@ function App() {
         <div className="click-area">
           <div className="character-wrapper">
             <img
-              src={isPanda ? ChutneyPan : Samosa}
+              src={samosaCount >= 100 ? ChutneyPan : Samosa}
               alt="Main Character"
-              className={`samosa ${isPanda ? 'redpanda' : ''} ${fadeClass} pop`}
+              className={`samosa ${samosaCount >= 100 ? 'redpanda' : ''} pop`}
             />
           </div>
         </div>

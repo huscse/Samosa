@@ -313,13 +313,4 @@ h1 {
 .chutney-foot {
   filter: drop-shadow(1px 1px 0px #00000033);
 }
-
-.fade-out {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.fade-in {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
+s
