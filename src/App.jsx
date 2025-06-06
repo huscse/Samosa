@@ -8,7 +8,8 @@ import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   const [samosaCount, setSamosaCount] = useState(0);
-  const [multiplier, setMultiplier] = useState(1);
+  const [baseMultiplier, setBaseMultiplier] = useState(1);
+  const [temporaryBoost, setTemporaryBoost] = useState(0);
   const [chutneyActive, setChutneyActive] = useState(false);
 
   const [unlocked, setUnlocked] = useState({
@@ -19,6 +20,8 @@ function App() {
 
   const audioContextRef = useRef(null);
   const audioBufferRef = useRef(null);
+
+  const totalMultiplier = baseMultiplier + temporaryBoost;
 
   useEffect(() => {
     audioContextRef.current = new (window.AudioContext ||
@@ -43,7 +46,7 @@ function App() {
   }, [samosaCount]);
 
   const handleClick = () => {
-    setSamosaCount((prev) => prev + multiplier);
+    setSamosaCount((prev) => prev + totalMultiplier);
 
     const img = document.querySelector('.samosa');
     img.classList.remove('pop');
@@ -83,10 +86,10 @@ function App() {
           className={`upgrade ${samosaCount >= 200 ? '' : 'locked'}`}
           onClick={() => {
             if (!chutneyActive) {
-              setMultiplier((prev) => prev + 10);
+              setTemporaryBoost(10);
               setChutneyActive(true);
               setTimeout(() => {
-                setMultiplier((prev) => prev - 10);
+                setTemporaryBoost(0);
                 setChutneyActive(false);
               }, 10000);
             }
@@ -98,7 +101,7 @@ function App() {
 
         <button
           className={`upgrade ${unlocked.double ? '' : 'locked'}`}
-          onClick={() => unlocked.double && setMultiplier(2)}
+          onClick={() => unlocked.double && setBaseMultiplier(2)}
           disabled={!unlocked.double}
         >
           🍽️ Double Samosas (150 clicks)
@@ -106,7 +109,7 @@ function App() {
 
         <button
           className={`upgrade ${unlocked.extra ? '' : 'locked'}`}
-          onClick={() => unlocked.extra && setMultiplier(3)}
+          onClick={() => unlocked.extra && setBaseMultiplier(3)}
           disabled={!unlocked.extra}
         >
           🥟 Extra Filling (500 clicks)
@@ -116,7 +119,7 @@ function App() {
           className={`upgrade ${unlocked.party ? '' : 'locked'}`}
           onClick={() => {
             if (unlocked.party) {
-              setMultiplier(5);
+              setBaseMultiplier(5);
 
               // 🪩 Party background FX
               document.body.classList.add('party-mode');
@@ -136,3 +139,4 @@ function App() {
 }
 
 export default App;
+s
